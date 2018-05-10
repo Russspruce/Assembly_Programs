@@ -16,7 +16,7 @@ intro        BYTE "Elementary Arithmetic by Andrew Russo", 0
 instruction  BYTE "Please enter two numbers to see their results using basic math.", 0
 xtrCrdt1     BYTE "**Program will check to see if the second number is less than the first number.**",0
 xtrCrdt2     BYTE "**Program will repeat until user chooses option to exit.**",0
-numError	 BYTE "ERR0R: Please try again with the second number being smaller",0
+
 
 firstLine    BYTE "First Number Input: ",0
 secondLine   BYTE "Second Number Input: ",0
@@ -95,7 +95,7 @@ main PROC
   	call	CrLf
   	jmp		Restart
 
- CalculateStuff:
+
   ;Sum calculations and print
   	mov		eax, firstNum
   	mov		ebx, secondNum
@@ -139,17 +139,17 @@ main PROC
 
 
   ;Quotient calculations and print of booth quotient and remainder
-  	mov		eax, firstNum
-  	mov		ebx, secondNum
+  	mov		eax, number1
+  	mov		ebx, number2
   	mov		edx, 0
   	div		ebx
-  	mov		divTotal, eax
-  	mov		remTotal, edx
+  	mov		quotient, eax
+  	mov		remainder, edx
 
 
   	mov		edx, OFFSET divResult
   	call	WriteString
-  	mov		edx, OFFSET divTotal
+  	mov		edx, OFFSET quotient
   	call	WriteInt
 
 
